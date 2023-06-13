@@ -1,4 +1,4 @@
-# CS141-FinalProject- DijkStra's Algorithm
+# CS141-FinalProject- Dijkstra's Algorithm
 
 Author: Harrison Williams <br />
 Stu ID: 861168815 <br />
