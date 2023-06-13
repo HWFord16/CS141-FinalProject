@@ -14,7 +14,9 @@ Following simple commands in the command line will compile and run the Dijkstra'
 ```
 g++ ./cs141_finalProject_dijkStra.cpp -std=c++20 -o dijkStraAlgo
 ```
+
 This will compile and create an executable called `dijkStraAlgo` in the C++ 20 standard. Then run the executable to run the program as follows.
+
 ```
 ./dijkstraAlgo.exe
 ```
