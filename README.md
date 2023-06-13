@@ -23,3 +23,17 @@ This will compile and create an executable called `dijkStraAlgo` in the C++ 20 s
 The following program was tested and ran on the following graph which was hard coded in the source for demo/presentation purposes. Ideally, the next version of this program will prompt user input to create their own graph to run Dijkstra's Alogrithm on. 
 
 > ## Graph 
+<img width="450" src="https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_graph.png">
+
+>## Various Source/Starting Vertice Examples
+> Node 1 <br />
+![Node 1](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode1_programOutput.PNG)
+![Node 1](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode1.PNG)
+
+>Node 0 <br />
+![Node 0](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode0_programOutput.PNG)
+![Node 0](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode0.PNG)
+
+>Node 5 <br />
+![Node 5](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode5_programOutput.PNG)
+![Node 5](https://github.com/HWFord16/CS141-FinalProject/blob/main/cs141_dijkstra_sourceNode5.PNG)
