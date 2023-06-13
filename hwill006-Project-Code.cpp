@@ -72,7 +72,7 @@ int main(){
         DijkstraShortestPath(E,W,p,d);   //func. call to DijkStra's Algo
     
         //Display Outputs
-        cout << "\n\nShortest Paths\n-------------------" << endl;
+        cout << "\nShortest Paths\n-------------------" << endl;
         cout << setw(18) << left << "Path to Vertex" << setw(10) << left << "Cost" << "Path Topology" << endl<<endl;
         for (int i = 0; i < E.size(); i++) {
             cout << setw(18) << left << i;
@@ -93,6 +93,7 @@ int main(){
  
         if(choice == 'Y' || choice == 'y') changeSourceNode = true;
         else changeSourceNode= false;
+        cout<<endl<<endl;
     }while(changeSourceNode);
 
     //Exit Program
