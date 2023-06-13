@@ -1,0 +1,4 @@
+With Dijkstra's Algorithm, we utilize efficiency of a Priority Queue. However, the C++ STL (Standard Template Library) default Priority Queue is a max heap. In order to turn a priority queue into a min-heap, which of the following methods can handle this? Assume we are working with integer(int) datatypes.
+greater<int> 
+priQue.top()
+Both Options Correct
