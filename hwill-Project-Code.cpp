@@ -4,31 +4,41 @@
     Professor Eldawy
     Final Project: Dijkstra's Algorithm
     06/12/23
-    verison 1
+    verison 2
 */
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <vector>
 #include <map>
 #include <queue>
 #include <set>
 #include <limits>
+#include <stack>
 
 using namespace std;
 
 //function Prototypes
 void DijkstraShortestPath(const map<int,vector<int>>&, const map<pair<int,int>,float>&, int*, float*);
+void PrintPath(int*, int);
 
 //execution
 //Ideally this program will have user prompts to create graph
-//for demo Purposes, main() will have hard coded graph stored in maps
+//main() will have hard coded graph stored in maps for demo purposes
 int main(){
+    cout<<"\n\n*************************************************************\n"
+    "Welcome to the Single Source All Destination Graph Program\n"
+    "                 (Dijkstra's Algorithm)\n"
+    "*************************************************************\n"<<endl;
+
     //Declare Variables
-    map<int,vector<int>> E;     //Adjacency list representing Graph
+    map<int,vector<int>> E;     //Adjaceny list representing Graph
     map<pair<int,int>,float> W; //Edge weight mapping G.E-->R
     int p[8];                   //shortest path topology (predecessor)
     float d[8];                 //shortest path distances to each vertice
+    char choice;
+    bool changeSourceNode= true;
 
     //Initialize Variables
     //Construct Graph
@@ -41,7 +51,7 @@ int main(){
     E[6] = {4,5};
     E[7] = {6};
     
-    // Assignweights to edges
+    // Assign weights to edges
     W[make_pair(0, 1)] = 1.0;
     W[make_pair(0, 2)] = 8.0;
     W[make_pair(0, 4)] = 3.0;
@@ -58,18 +68,32 @@ int main(){
     W[make_pair(7, 6)] = 8.0;
     
     //Process Inputs to Ouputs
-    DijkstraShortestPath(E,W,p,d);
-
-    //Display Outputs
-    cout << "\n\nShortest Path\n-------------------" << endl;
-    for (int i = 0; i < E.size(); i++) {
-        cout << "Vertex " << i << ": ";
-        if (p[i] != -1) {
-            cout << p[i] << " -> ";
+    do{
+        DijkstraShortestPath(E,W,p,d);   //func. call to DijkStra's Algo
+    
+        //Display Outputs
+        cout << "\n\nShortest Paths\n-------------------" << endl;
+        cout << setw(18) << left << "Path to Vertex" << setw(10) << left << "Cost" << "Path Topology" << endl<<endl;
+        for (int i = 0; i < E.size(); i++) {
+            cout << setw(18) << left << i;
+            
+            if (p[i] != -1) {
+                cout << setw(10) << left << d[i];
+                PrintPath(p,i);
+                cout<<endl;
+            }
+            else if(d[i] == 0) cout<< setw(10) <<left<< 0 << i << endl;
+            else cout << setw(10) << left << "INF"<< "No path" << endl;
         }
-        cout << i << " (Cost: " << d[i] << ")" << endl;
-    }
-    cout<<endl<<endl;
+        cout<<endl<<endl;
+
+        //prompt user
+        cout<<"Would you like to change the Starting Vertex? (Y/N) : ";
+        cin >> choice;
+ 
+        if(choice == 'Y' || choice == 'y') changeSourceNode = true;
+        else changeSourceNode= false;
+    }while(changeSourceNode);
 
     //Exit Program
     return 0;
@@ -96,7 +120,6 @@ void DijkstraShortestPath(const map<int,vector<int>>& E , const map<pair<int,int
         int vertex = entry.first;
         priQue.push(make_pair(d[vertex], vertex));
     }
-    //priQue.push(make_pair(0, srcNode));
 
     //Iterate through Graph G to find shortest path
     while (!priQue.empty()) {
@@ -121,6 +144,22 @@ void DijkstraShortestPath(const map<int,vector<int>>& E , const map<pair<int,int
                     priQue.push(make_pair(d[v], v));
                 }
             }
+        }
+    }
+}
+
+void PrintPath(int* p, int v) {
+    stack<int> path;
+    while (v != -1) {
+        path.push(v);
+        v = p[v];
+    }
+
+    while (!path.empty()) {
+        cout << path.top();
+        path.pop();
+        if (!path.empty()) {
+            cout << " -> ";
         }
     }
 }
